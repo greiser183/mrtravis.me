@@ -1,0 +1,203 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    
+<meta charset="utf-8" >
+
+<title>Linux 查看端口占用情况 | Travis Blog</title>
+<meta name="description" content="All is life.">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://mrtravis.me/favicon.ico?v=1738498555099">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+<link rel="stylesheet" href="https://mrtravis.me/styles/main.css">
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.5.1/build/highlight.min.js"></script>
+
+
+
+  </head>
+  <body>
+    <div id="app" class="main">
+      <div class="site-header-container">
+  <div class="site-header">
+    <div class="left">
+      <a href="https://mrtravis.me">
+        <img class="avatar" src="https://mrtravis.me/images/avatar.png?v=1738498555099" alt="" width="32px" height="32px">
+      </a>
+      <a href="https://mrtravis.me">
+        <h1 class="site-title">Travis Blog</h1>
+      </a>
+    </div>
+    <div class="right">
+      <transition name="fade">
+        <i class="icon" :class="{ 'icon-close-outline': menuVisible, 'icon-menu-outline': !menuVisible }" @click="menuVisible = !menuVisible"></i>
+      </transition>
+    </div>
+  </div>
+</div>
+
+<transition name="fade">
+  <div class="menu-container" style="display: none;" v-show="menuVisible">
+    <div class="menu-list">
+      
+        
+          <a href="/" class="menu purple-link">
+            首页
+          </a>
+        
+      
+        
+          <a href="/archives" class="menu purple-link">
+            归档
+          </a>
+        
+      
+        
+          <a href="/tags" class="menu purple-link">
+            标签
+          </a>
+        
+      
+        
+          <a href="/post/about" class="menu purple-link">
+            关于
+          </a>
+        
+      
+    </div>
+  </div>
+</transition>
+
+
+      <div class="content-container">
+        <div class="post-detail">
+          
+            <div class="feature-container" style="background-image: url('https://mrtravis.me/post-images/linux-cha-kan-duan-kou-zhan-yong-qing-kuang.jpg')">
+            </div>
+          
+          <h2 class="post-title">Linux 查看端口占用情况</h2>
+          <div class="post-info post-detail-info">
+            <span><i class="icon-calendar-outline"></i> 2025-02-02</span>
+            
+          </div>
+          <div class="post-content" v-pre>
+            <p>Linux 查看端口占用情况可以使用 lsof 和 netstat 命令。</p>
+<p>lsof<br>
+lsof(list open files)是一个列出当前系统打开文件的工具。<br>
+lsof 查看端口占用语法格式：lsof -i:端口号<br>
+查看服务器 8000 端口的占用情况：</p>
+<!-- more -->
+<p>lsof -i:8000<br>
+lsof -i 需要 root 用户的权限来执行。<br>
+更多 lsof 的命令如下：<br>
+lsof -i:8080：查看8080端口占用<br>
+lsof abc.txt：显示开启文件abc.txt的进程<br>
+lsof -c abc：显示abc进程现在打开的文件<br>
+lsof -c -p 1234：列出进程号为1234的进程所打开的文件<br>
+lsof -g gid：显示归属gid的进程情况<br>
+lsof +d /usr/local/：显示目录下被进程开启的文件<br>
+lsof +D /usr/local/：同上，但是会搜索目录下的目录，时间较长<br>
+lsof -d 4：显示使用fd为4的进程<br>
+lsof -i -U：显示所有打开的端口和UNIX domain文件</p>
+<p>netstat<br>
+netstat -tunlp 用于显示 tcp，udp 的端口和进程等相关情况。<br>
+netstat 查看端口占用语法格式：netstat -tunlp | grep 端口号<br>
+-t (tcp) 仅显示tcp相关选项<br>
+-u (udp)仅显示udp相关选项<br>
+-n 拒绝显示别名，能显示数字的全部转化为数字<br>
+-l 仅列出在Listen(监听)的服务状态<br>
+-p 显示建立相关链接的程序名<br>
+例如查看 8000 端口的情况，使用以下命令：</p>
+<p>netstat -tunlp | grep 8000<br>
+更多命令：<br>
+netstat -ntlp //查看当前所有tcp端口<br>
+netstat -ntulp | grep 80 //查看所有80端口使用情况<br>
+netstat -ntulp | grep 3306 //查看所有3306端口使用情况</p>
+<p>kill<br>
+在查到端口占用的进程后，如果你要杀掉对应的进程可以使用 kill 命令：</p>
+<p>kill -9 PID<br>
+如上实例，我们看到 8000 端口对应的 PID 为 26993，使用以下命令杀死进程：</p>
+<p>kill -9 26993</p>
+
+          </div>
+        </div>
+
+        
+          <div class="next-post">
+            <a class="purple-link" href="https://mrtravis.me/post/linux-kuai-su-kai-qi-google-bbr-de-fang-fa-shi-xian-tcp-gao-xiao-dan-bian-jia-su/">
+              <h3 class="post-title">
+                下一篇：Linux 快速开启Google BBR的方法
+              </h3>
+            </a>
+          </div>
+          
+      </div>
+
+      
+
+      <div class="site-footer">
+  <div class="slogan">All is life.</div>
+  <div class="social-container">
+    
+      
+        <a href="https://github.com" target="_blank">
+          <i class="fab fa-github"></i>
+        </a>
+      
+    
+      
+        <a href="https://x.com" target="_blank">
+          <i class="fab fa-twitter"></i>
+        </a>
+      
+    
+      
+        <a href="https://weibo.com/newlogin" target="_blank">
+          <i class="fab fa-weibo"></i>
+        </a>
+      
+    
+      
+        <a href="https://zhihu.com" target="_blank">
+          <i class="fab fa-zhihu"></i>
+        </a>
+      
+    
+      
+        <a href="https://facebook.com" target="_blank">
+          <i class="fab fa-facebook"></i>
+        </a>
+      
+    
+  </div>
+  Feedback: <a href="mailto:e@mrtravis.me" target="_blank">Travis</a> | <a class="rss" href="https://mrtravis.me/atom.xml" target="_blank">RSS</a>
+</div>
+
+
+    </div>
+    <script type="application/javascript">
+
+hljs.initHighlightingOnLoad()
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+
+
+  </body>
+</html>

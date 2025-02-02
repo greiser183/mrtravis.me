@@ -1,0 +1,281 @@
+
+<html>
+  <head>
+    
+<meta charset="utf-8" >
+
+<title>Travis Blog</title>
+<meta name="description" content="All is life.">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://mrtravis.me/favicon.ico?v=1738498555099">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+<link rel="stylesheet" href="https://mrtravis.me/styles/main.css">
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.5.1/build/highlight.min.js"></script>
+
+
+
+  </head>
+  <body>
+    <div id="app" class="main">
+      <div class="site-header-container">
+  <div class="site-header">
+    <div class="left">
+      <a href="https://mrtravis.me">
+        <img class="avatar" src="https://mrtravis.me/images/avatar.png?v=1738498555099" alt="" width="32px" height="32px">
+      </a>
+      <a href="https://mrtravis.me">
+        <h1 class="site-title">Travis Blog</h1>
+      </a>
+    </div>
+    <div class="right">
+      <transition name="fade">
+        <i class="icon" :class="{ 'icon-close-outline': menuVisible, 'icon-menu-outline': !menuVisible }" @click="menuVisible = !menuVisible"></i>
+      </transition>
+    </div>
+  </div>
+</div>
+
+<transition name="fade">
+  <div class="menu-container" style="display: none;" v-show="menuVisible">
+    <div class="menu-list">
+      
+        
+          <a href="/" class="menu purple-link">
+            首页
+          </a>
+        
+      
+        
+          <a href="/archives" class="menu purple-link">
+            归档
+          </a>
+        
+      
+        
+          <a href="/tags" class="menu purple-link">
+            标签
+          </a>
+        
+      
+        
+          <a href="/post/about" class="menu purple-link">
+            关于
+          </a>
+        
+      
+    </div>
+  </div>
+</transition>
+
+
+      <div class="content-container">
+        
+        
+<section class="post-item">
+    <div class="content">
+      <a href="https://mrtravis.me/post/linux-xia-kai-qi-sshbing-qie-yun-xu-root-yong-hu-yuan-cheng-deng-lu/">
+        <h2 class="post-title">Linux 下开启SSH允许root用户远程登录</h2>
+      </a>
+      <div class="post-abstract">
+        <p>你可能想知道如何以root用户登录Ubuntu/Debain，或者默认的root密码是什么。在Linux中，出于安全原因，默认情况下禁用了root用户。本教程说明了如何在Linux (Ubuntu/Debain)中启用和禁用root用户。</p>
+
+      </div>
+      <div class="post-info">
+        <span><i class="icon icon-calendar-outline"></i> 2025-02-02</span>
+        
+      </div>
+    </div>
+    
+      <a href="https://mrtravis.me/post/linux-xia-kai-qi-sshbing-qie-yun-xu-root-yong-hu-yuan-cheng-deng-lu/">
+        <div class="feature-container" style="background-image: url('https://mrtravis.me/post-images/linux-xia-kai-qi-sshbing-qie-yun-xu-root-yong-hu-yuan-cheng-deng-lu.jpg')">
+        </div>
+      </a>
+    
+  </section>
+
+<section class="post-item">
+    <div class="content">
+      <a href="https://mrtravis.me/post/linux-xia-ru-he-tian-jia-xu-ni-nei-cun/">
+        <h2 class="post-title">Linux 下如何添加虚拟内存</h2>
+      </a>
+      <div class="post-abstract">
+        <p>Linux操作系统有两种实现虚拟内存的方法：交换分区swap分区和交换文件swap文件。<br>
+采用交换分区的办法其实就是新建一个分区，然后将该分区挂载作为交换空间，方法步骤与传统的新建分区一样。只不过格式化分区和挂载分区分别采用mkswap和swapon命令。在创建分区之前，我们常常要用过fdisk -l和df -Th命令来查看硬盘信息和挂载信息，来确定分区的大小。</p>
+
+      </div>
+      <div class="post-info">
+        <span><i class="icon icon-calendar-outline"></i> 2025-02-02</span>
+        
+      </div>
+    </div>
+    
+      <a href="https://mrtravis.me/post/linux-xia-ru-he-tian-jia-xu-ni-nei-cun/">
+        <div class="feature-container" style="background-image: url('https://mrtravis.me/post-images/linux-xia-ru-he-tian-jia-xu-ni-nei-cun.jpg')">
+        </div>
+      </a>
+    
+  </section>
+
+<section class="post-item">
+    <div class="content">
+      <a href="https://mrtravis.me/post/linux-cha-kan-duan-kou-zhan-yong-qing-kuang/">
+        <h2 class="post-title">Linux 查看端口占用情况</h2>
+      </a>
+      <div class="post-abstract">
+        <p>Linux 查看端口占用情况可以使用 lsof 和 netstat 命令。</p>
+<p>lsof<br>
+lsof(list open files)是一个列出当前系统打开文件的工具。<br>
+lsof 查看端口占用语法格式：lsof -i:端口号<br>
+查看服务器 8000 端口的占用情况：</p>
+
+      </div>
+      <div class="post-info">
+        <span><i class="icon icon-calendar-outline"></i> 2025-02-02</span>
+        
+      </div>
+    </div>
+    
+      <a href="https://mrtravis.me/post/linux-cha-kan-duan-kou-zhan-yong-qing-kuang/">
+        <div class="feature-container" style="background-image: url('https://mrtravis.me/post-images/linux-cha-kan-duan-kou-zhan-yong-qing-kuang.jpg')">
+        </div>
+      </a>
+    
+  </section>
+
+<section class="post-item">
+    <div class="content">
+      <a href="https://mrtravis.me/post/linux-kuai-su-kai-qi-google-bbr-de-fang-fa-shi-xian-tcp-gao-xiao-dan-bian-jia-su/">
+        <h2 class="post-title">Linux 快速开启Google BBR的方法</h2>
+      </a>
+      <div class="post-abstract">
+        <p>BBR 是谷歌公司的某个员工研发出来的服务器单边加速算法，Linux内核从4.9版开始集成BBR算法。相比锐速BBR的加速效果更为温和，并且占用内存小对服务器压力也很小，当时理想情况下是可以跑满整个服务器物理带宽，比锐速更加稳定，能够有效的降低服务器的网络丢包率，减少网络拥堵。</p>
+
+      </div>
+      <div class="post-info">
+        <span><i class="icon icon-calendar-outline"></i> 2025-02-02</span>
+        
+      </div>
+    </div>
+    
+      <a href="https://mrtravis.me/post/linux-kuai-su-kai-qi-google-bbr-de-fang-fa-shi-xian-tcp-gao-xiao-dan-bian-jia-su/">
+        <div class="feature-container" style="background-image: url('https://mrtravis.me/post-images/linux-kuai-su-kai-qi-google-bbr-de-fang-fa-shi-xian-tcp-gao-xiao-dan-bian-jia-su.jpg')">
+        </div>
+      </a>
+    
+  </section>
+
+<section class="post-item">
+    <div class="content">
+      <a href="https://mrtravis.me/post/hello-gridea/">
+        <h2 class="post-title">Hello World</h2>
+      </a>
+      <div class="post-abstract">
+        <p>👏  欢迎使用 <strong>World</strong> ！<br>
+✍️  <strong>World</strong> 一个静态博客写作客户端。你可以用它来记录你的生活、心情、知识、笔记、创意... ...</p>
+
+      </div>
+      <div class="post-info">
+        <span><i class="icon icon-calendar-outline"></i> 2024-12-31</span>
+        
+          <span>
+            <i class="icon icon-pricetags-outline"></i>
+            
+              <a href="https://mrtravis.me/tag/HweOOsdwh5/">
+                Travis
+                
+                  ，
+                
+              </a>
+            
+              <a href="https://mrtravis.me/tag/C59mlnNEal/">
+                Gridea
+                
+              </a>
+            
+          </span>
+        
+      </div>
+    </div>
+    
+      <a href="https://mrtravis.me/post/hello-gridea/">
+        <div class="feature-container" style="background-image: url('https://mrtravis.me/post-images/hello-gridea.png')">
+        </div>
+      </a>
+    
+  </section>
+
+
+<div class="pagination-container">
+  
+  
+</div>
+
+
+      </div>
+
+      <div class="site-footer">
+  <div class="slogan">All is life.</div>
+  <div class="social-container">
+    
+      
+        <a href="https://github.com" target="_blank">
+          <i class="fab fa-github"></i>
+        </a>
+      
+    
+      
+        <a href="https://x.com" target="_blank">
+          <i class="fab fa-twitter"></i>
+        </a>
+      
+    
+      
+        <a href="https://weibo.com/newlogin" target="_blank">
+          <i class="fab fa-weibo"></i>
+        </a>
+      
+    
+      
+        <a href="https://zhihu.com" target="_blank">
+          <i class="fab fa-zhihu"></i>
+        </a>
+      
+    
+      
+        <a href="https://facebook.com" target="_blank">
+          <i class="fab fa-facebook"></i>
+        </a>
+      
+    
+  </div>
+  Feedback: <a href="mailto:e@mrtravis.me" target="_blank">Travis</a> | <a class="rss" href="https://mrtravis.me/atom.xml" target="_blank">RSS</a>
+</div>
+
+
+    </div>
+    <script type="application/javascript">
+
+hljs.initHighlightingOnLoad()
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+
+
+  </body>
+</html>

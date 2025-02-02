@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>https://mrtravis.me</id>
+    <title>Travis Blog</title>
+    <updated>2025-02-02T12:16:09.021Z</updated>
+    <generator>https://github.com/jpmonette/feed</generator>
+    <link rel="alternate" href="https://mrtravis.me"/>
+    <link rel="self" href="https://mrtravis.me/atom.xml"/>
+    <subtitle>All is life.</subtitle>
+    <logo>https://mrtravis.me/images/avatar.png</logo>
+    <icon>https://mrtravis.me/favicon.ico</icon>
+    <rights>All rights reserved 2025, Travis Blog</rights>
+    <entry>
+        <title type="html"><![CDATA[Linux 下开启SSH允许root用户远程登录]]></title>
+        <id>https://mrtravis.me/post/linux-xia-kai-qi-sshbing-qie-yun-xu-root-yong-hu-yuan-cheng-deng-lu/</id>
+        <link href="https://mrtravis.me/post/linux-xia-kai-qi-sshbing-qie-yun-xu-root-yong-hu-yuan-cheng-deng-lu/">
+        </link>
+        <updated>2025-02-02T12:12:32.000Z</updated>
+        <summary type="html"><![CDATA[<p>你可能想知道如何以root用户登录Ubuntu/Debain，或者默认的root密码是什么。在Linux中，出于安全原因，默认情况下禁用了root用户。本教程说明了如何在Linux (Ubuntu/Debain)中启用和禁用root用户。</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>你可能想知道如何以root用户登录Ubuntu/Debain，或者默认的root密码是什么。在Linux中，出于安全原因，默认情况下禁用了root用户。本教程说明了如何在Linux (Ubuntu/Debain)中启用和禁用root用户。</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Linux 下如何添加虚拟内存]]></title>
+        <id>https://mrtravis.me/post/linux-xia-ru-he-tian-jia-xu-ni-nei-cun/</id>
+        <link href="https://mrtravis.me/post/linux-xia-ru-he-tian-jia-xu-ni-nei-cun/">
+        </link>
+        <updated>2025-02-02T12:11:38.000Z</updated>
+        <summary type="html"><![CDATA[<p>Linux操作系统有两种实现虚拟内存的方法：交换分区swap分区和交换文件swap文件。<br>
+采用交换分区的办法其实就是新建一个分区，然后将该分区挂载作为交换空间，方法步骤与传统的新建分区一样。只不过格式化分区和挂载分区分别采用mkswap和swapon命令。在创建分区之前，我们常常要用过fdisk -l和df -Th命令来查看硬盘信息和挂载信息，来确定分区的大小。</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>Linux操作系统有两种实现虚拟内存的方法：交换分区swap分区和交换文件swap文件。<br>
+采用交换分区的办法其实就是新建一个分区，然后将该分区挂载作为交换空间，方法步骤与传统的新建分区一样。只不过格式化分区和挂载分区分别采用mkswap和swapon命令。在创建分区之前，我们常常要用过fdisk -l和df -Th命令来查看硬盘信息和挂载信息，来确定分区的大小。</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Linux 查看端口占用情况]]></title>
+        <id>https://mrtravis.me/post/linux-cha-kan-duan-kou-zhan-yong-qing-kuang/</id>
+        <link href="https://mrtravis.me/post/linux-cha-kan-duan-kou-zhan-yong-qing-kuang/">
+        </link>
+        <updated>2025-02-02T12:11:11.000Z</updated>
+        <summary type="html"><![CDATA[<p>Linux 查看端口占用情况可以使用 lsof 和 netstat 命令。</p>
+<p>lsof<br>
+lsof(list open files)是一个列出当前系统打开文件的工具。<br>
+lsof 查看端口占用语法格式：lsof -i:端口号<br>
+查看服务器 8000 端口的占用情况：</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>Linux 查看端口占用情况可以使用 lsof 和 netstat 命令。</p>
+<p>lsof<br>
+lsof(list open files)是一个列出当前系统打开文件的工具。<br>
+lsof 查看端口占用语法格式：lsof -i:端口号<br>
+查看服务器 8000 端口的占用情况：</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Linux 快速开启Google BBR的方法]]></title>
+        <id>https://mrtravis.me/post/linux-kuai-su-kai-qi-google-bbr-de-fang-fa-shi-xian-tcp-gao-xiao-dan-bian-jia-su/</id>
+        <link href="https://mrtravis.me/post/linux-kuai-su-kai-qi-google-bbr-de-fang-fa-shi-xian-tcp-gao-xiao-dan-bian-jia-su/">
+        </link>
+        <updated>2025-02-02T12:10:20.000Z</updated>
+        <summary type="html"><![CDATA[<p>BBR 是谷歌公司的某个员工研发出来的服务器单边加速算法，Linux内核从4.9版开始集成BBR算法。相比锐速BBR的加速效果更为温和，并且占用内存小对服务器压力也很小，当时理想情况下是可以跑满整个服务器物理带宽，比锐速更加稳定，能够有效的降低服务器的网络丢包率，减少网络拥堵。</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>BBR 是谷歌公司的某个员工研发出来的服务器单边加速算法，Linux内核从4.9版开始集成BBR算法。相比锐速BBR的加速效果更为温和，并且占用内存小对服务器压力也很小，当时理想情况下是可以跑满整个服务器物理带宽，比锐速更加稳定，能够有效的降低服务器的网络丢包率，减少网络拥堵。</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Hello World]]></title>
+        <id>https://mrtravis.me/post/hello-gridea/</id>
+        <link href="https://mrtravis.me/post/hello-gridea/">
+        </link>
+        <updated>2024-12-30T16:00:00.000Z</updated>
+        <summary type="html"><![CDATA[<p>👏  欢迎使用 <strong>World</strong> ！<br>
+✍️  <strong>World</strong> 一个静态博客写作客户端。你可以用它来记录你的生活、心情、知识、笔记、创意... ...</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>👏  欢迎使用 <strong>World</strong> ！<br>
+✍️  <strong>World</strong> 一个静态博客写作客户端。你可以用它来记录你的生活、心情、知识、笔记、创意... ...</p>
+]]></content>
+    </entry>
+</feed>

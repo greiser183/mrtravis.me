@@ -1,0 +1,183 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    
+<meta charset="utf-8" >
+
+<title>Linux 快速开启Google BBR的方法 | Travis Blog</title>
+<meta name="description" content="All is life.">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://mrtravis.me/favicon.ico?v=1738498555099">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+<link rel="stylesheet" href="https://mrtravis.me/styles/main.css">
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.5.1/build/highlight.min.js"></script>
+
+
+
+  </head>
+  <body>
+    <div id="app" class="main">
+      <div class="site-header-container">
+  <div class="site-header">
+    <div class="left">
+      <a href="https://mrtravis.me">
+        <img class="avatar" src="https://mrtravis.me/images/avatar.png?v=1738498555099" alt="" width="32px" height="32px">
+      </a>
+      <a href="https://mrtravis.me">
+        <h1 class="site-title">Travis Blog</h1>
+      </a>
+    </div>
+    <div class="right">
+      <transition name="fade">
+        <i class="icon" :class="{ 'icon-close-outline': menuVisible, 'icon-menu-outline': !menuVisible }" @click="menuVisible = !menuVisible"></i>
+      </transition>
+    </div>
+  </div>
+</div>
+
+<transition name="fade">
+  <div class="menu-container" style="display: none;" v-show="menuVisible">
+    <div class="menu-list">
+      
+        
+          <a href="/" class="menu purple-link">
+            首页
+          </a>
+        
+      
+        
+          <a href="/archives" class="menu purple-link">
+            归档
+          </a>
+        
+      
+        
+          <a href="/tags" class="menu purple-link">
+            标签
+          </a>
+        
+      
+        
+          <a href="/post/about" class="menu purple-link">
+            关于
+          </a>
+        
+      
+    </div>
+  </div>
+</transition>
+
+
+      <div class="content-container">
+        <div class="post-detail">
+          
+            <div class="feature-container" style="background-image: url('https://mrtravis.me/post-images/linux-kuai-su-kai-qi-google-bbr-de-fang-fa-shi-xian-tcp-gao-xiao-dan-bian-jia-su.jpg')">
+            </div>
+          
+          <h2 class="post-title">Linux 快速开启Google BBR的方法</h2>
+          <div class="post-info post-detail-info">
+            <span><i class="icon-calendar-outline"></i> 2025-02-02</span>
+            
+          </div>
+          <div class="post-content" v-pre>
+            <p>BBR 是谷歌公司的某个员工研发出来的服务器单边加速算法，Linux内核从4.9版开始集成BBR算法。相比锐速BBR的加速效果更为温和，并且占用内存小对服务器压力也很小，当时理想情况下是可以跑满整个服务器物理带宽，比锐速更加稳定，能够有效的降低服务器的网络丢包率，减少网络拥堵。</p>
+<!-- more -->
+<p>由于Debian 9默认的内核版本就是4.9.x，我们不需要像别的系统需要更换内核，直接就能开启BBR算法。<br>
+提示：目前最新版Debian 10内核为4.19，也可以直接用该方法开启BBR。</p>
+<p>1、修改系统变量</p>
+<p>echo &quot;net.core.default_qdisc=fq&quot; &gt;&gt; /etc/sysctl.conf<br>
+echo &quot;net.ipv4.tcp_congestion_control=bbr&quot; &gt;&gt; /etc/sysctl.conf<br>
+2、保存生效</p>
+<p>sysctl -p<br>
+3、查看内核是否已开启BBR</p>
+<p>sysctl net.ipv4.tcp_available_congestion_control<br>
+显示以下即已开启：</p>
+<p>net.ipv4.tcp_available_congestion_control = bbr cubic reno<br>
+4、查看BBR是否启动</p>
+<p>lsmod | grep bbr<br>
+显示以下即启动成功：</p>
+<p>tcp_bbr                20480  14</p>
+
+          </div>
+        </div>
+
+        
+          <div class="next-post">
+            <a class="purple-link" href="https://mrtravis.me/post/hello-gridea/">
+              <h3 class="post-title">
+                下一篇：Hello World
+              </h3>
+            </a>
+          </div>
+          
+      </div>
+
+      
+
+      <div class="site-footer">
+  <div class="slogan">All is life.</div>
+  <div class="social-container">
+    
+      
+        <a href="https://github.com" target="_blank">
+          <i class="fab fa-github"></i>
+        </a>
+      
+    
+      
+        <a href="https://x.com" target="_blank">
+          <i class="fab fa-twitter"></i>
+        </a>
+      
+    
+      
+        <a href="https://weibo.com/newlogin" target="_blank">
+          <i class="fab fa-weibo"></i>
+        </a>
+      
+    
+      
+        <a href="https://zhihu.com" target="_blank">
+          <i class="fab fa-zhihu"></i>
+        </a>
+      
+    
+      
+        <a href="https://facebook.com" target="_blank">
+          <i class="fab fa-facebook"></i>
+        </a>
+      
+    
+  </div>
+  Feedback: <a href="mailto:e@mrtravis.me" target="_blank">Travis</a> | <a class="rss" href="https://mrtravis.me/atom.xml" target="_blank">RSS</a>
+</div>
+
+
+    </div>
+    <script type="application/javascript">
+
+hljs.initHighlightingOnLoad()
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+
+
+  </body>
+</html>
